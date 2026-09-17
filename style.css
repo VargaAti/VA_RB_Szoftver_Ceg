@@ -1,0 +1,39 @@
+:root {
+/* Hátterek, kártyák */
+--melykek-hatter: #0a111f;
+--sotet-pala-szurke: #1f2937;
+--kozepszurke-reszletek: #4b5563;
+
+/* kiemelőszínek */
+--elenk-kek-akcentus: #3b82f6;
+--tengerkek-innovacio: #06b6d4;
+--vilagoskek-kiemeles: #60a5fa;
+
+/*szöveg*/
+--tort-feher-szoveg: #f3f4f6;
+--vilagosszurke-szoveg: #d1d5db;
+}
+
+body {
+    background-color: var(--melykek-hatter);
+}
+
+.menu{
+    text-align: center;
+    padding: 15px 15px;
+    background-color: var(--sotet-pala-szurke);
+}
+
+.menu a {
+display: inline-block;
+color: #ffffff;
+text-decoration: none;
+padding: 6px 14px;
+margin: 2px;
+border-radius: 6;
+font-size: 15px;
+}
+
+.menu a:hover {
+
+}
