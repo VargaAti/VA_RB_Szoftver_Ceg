@@ -18,12 +18,12 @@ body {
     background-color: var(--melykek-hatter);
     color: var(--tort-feher-szoveg);
     margin: 0;
+    padding-top: 40px; /* Hogy a menü ne ragadjon teljesen a képernyő tetejére */
+    padding-bottom: 40px;
     min-height: 100vh;
-    /* Javítva: height helyett min-height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* Vízszintesen mindent (menü, kártya, kép) tökéletesen középre tesz */
     gap: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .menu a {
-    position: relative;
+    position: relative  ;
     z-index: 2;
     /* A szöveg a csúszó elem felett marad */
     display: inline-block;
@@ -108,10 +108,20 @@ body {
 }
 
 .kartya {
-    width: 500px;
+    width: 1000px;
     font-size: 25px;
     background-color: var(--kozepszurke-reszletek);
     border-radius: 25px;
     padding: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.Csarks {
+img {
+    width: 500px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 }
