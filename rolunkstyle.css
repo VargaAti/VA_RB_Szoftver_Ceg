@@ -18,18 +18,23 @@ body {
     background-color: var(--melykek-hatter);
     color: var(--tort-feher-szoveg);
     margin: 0;
+    padding: 40px 20px 60px;
     min-height: 100vh;
-    /* Javítva: height helyett min-height */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 120px;
 }
 
 .menu {
-    position: relative;
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
     display: flex;
     gap: 8px;
     padding: 8px;
@@ -125,13 +130,120 @@ body {
     width: 110px;
 }
 
-.kartya {
-    width: 500px;
+body>h1 {
+    margin: 10px 0 0;
+    font-size: 38px;
+    text-align: center;
+}
+
+.rolunk {
+    width: 100%;
+    max-width: 900px;
+}
+
+.bemutatas {
+    max-width: 760px;
+    margin: 0 auto 35px;
+    color: var(--vilagosszurke-szoveg);
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.csapat {
+    display: flex;
+    gap: 25px;
+}
+
+.tag {
+    flex: 1;
+    min-width: 0;
+    padding: 30px;
+    background-color: var(--sotet-pala-szurke);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    text-align: center;
+    transition: border-color 0.2s ease;
+}
+
+.tag:hover {
+    border-color: var(--vilagoskek-kiemeles);
+}
+
+.tag img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--vilagoskek-kiemeles);
+}
+
+.tag h2 {
+    margin: 20px 0 5px;
+    font-size: 24px;
+}
+
+.tag .szerepkor {
+    margin: 0 0 18px;
+    color: var(--vilagoskek-kiemeles);
+    font-weight: 600;
+}
+
+.tag p,
+.munkamodszer p {
+    color: var(--vilagosszurke-szoveg);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.tag p:last-child {
+    margin-bottom: 0;
+}
+
+.munkamodszer {
+    margin-top: 35px;
+    padding: 5px 25px;
+    border-left: 3px solid var(--elenk-kek-akcentus);
+}
+
+.munkamodszer h2 {
+    margin-top: 0;
     font-size: 25px;
-    background-color: var(--kozepszurke-reszletek);
-    border-radius: 25px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.munkamodszer p {
+    margin-bottom: 0;
+}
+
+/* Telefonon egymás alá kerülnek a kártyák */
+@media (max-width: 650px) {
+    body {
+        padding: 25px 15px 40px;
+    }
+
+    .csapat {
+        flex-direction: column;
+    }
+
+    body>h1 {
+        font-size: 32px;
+    }
+
+    .bemutatas {
+        font-size: 16px;
+    }
+
+    .menu {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+        flex-shrink: 0;
+    }
+
+    .menu a {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
 }
 
 @view-transition {

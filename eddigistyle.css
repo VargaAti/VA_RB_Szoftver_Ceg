@@ -26,10 +26,15 @@ body {
     align-items: center;
     gap: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 120px;
 }
 
 .menu {
-    position: relative;
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
     display: flex;
     gap: 8px;
     padding: 8px;
@@ -136,5 +141,5 @@ body {
 }
 
 @view-transition {
-    navigation: auto;
+navigation: auto;
 }
