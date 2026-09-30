@@ -134,3 +134,7 @@ body {
     padding: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
+
+@view-transition {
+    navigation: auto;
+}
