@@ -19,14 +19,9 @@ body {
     color: var(--tort-feher-szoveg);
     margin: 0;
     min-height: 100vh;
-    /* Javítva: height helyett min-height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    padding: 120px 20px 50px;
+    box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 120px;
 }
 
 .menu {
@@ -50,7 +45,6 @@ body {
 .menu a {
     position: relative;
     z-index: 2;
-    /* A szöveg a csúszó elem felett marad */
     display: inline-block;
     padding: 12px 24px;
     color: rgba(255, 255, 255, 0.7);
@@ -65,7 +59,6 @@ body {
     color: var(--tort-feher-szoveg);
 }
 
-/* A csúszó háttér elem (kapszula) */
 .menu::before {
     content: '';
     position: absolute;
@@ -73,10 +66,6 @@ body {
     left: 8px;
     height: calc(100% - 16px);
     background: rgba(255, 255, 255, 0.15);
-    /* Enyhén világosabb háttér */
-
-    /* A dupla backdrop-filter el lett távolítva a renderelési hiba megszüntetéséhez */
-
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
@@ -87,8 +76,6 @@ body {
     transform: translateX(0);
 }
 
-/* Hover és active állapotok kezelése a :has() segítségével */
-/* Az aktív menüpont helyzete */
 .menu:has(a:nth-child(1).active)::before {
     transform: translateX(0);
     width: 110px;
@@ -109,8 +96,6 @@ body {
     width: 110px;
 }
 
-/* Ezek legyenek az active szabályok UTÁN,
-   hogy rámutatáskor felülírják az aktív helyzetet. */
 .menu:has(a:nth-child(1):hover)::before {
     transform: translateX(0);
     width: 110px;
@@ -131,15 +116,67 @@ body {
     width: 110px;
 }
 
+body > div {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+body > div > h1 {
+    margin: 0 0 35px;
+    text-align: center;
+    font-size: 36px;
+}
+
+.munkak {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
 .kartya {
-    width: 500px;
-    font-size: 25px;
-    background-color: var(--kozepszurke-reszletek);
-    border-radius: 25px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    background-color: var(--sotet-pala-szurke);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 3px solid var(--elenk-kek-akcentus);
+    border-radius: 15px;
+    transition: border-color 0.2s ease;
+}
+
+.kartya:hover {
+    border-color: var(--vilagoskek-kiemeles);
+}
+
+.kartya h1 {
+    margin: 0 0 18px;
+    font-size: 23px;
+    line-height: 1.3;
+}
+
+.kartya p {
+    color: var(--vilagosszurke-szoveg);
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 15px;
+}
+
+.kartya p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+    .munkak {
+        grid-template-columns: 1fr;
+    }
+
+    body > div > h1 {
+        font-size: 30px;
+    }
+
+    .kartya {
+        padding: 20px;
+    }
 }
 
 @view-transition {
-navigation: auto;
+    navigation: auto;
 }
