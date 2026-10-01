@@ -36,7 +36,6 @@ body > div {
     width: 100%;
 }
 
-/* 1. Menü konténer - fix 1000px szélesség, gombok középen */
 .menu {
     position: relative;
     display: flex;
@@ -73,7 +72,6 @@ body > div {
     color: var(--tort-feher-szoveg);
 }
 
-/* 2. Csúszka alapbeállítása */
 .menu::before {
     content: '';
     position: absolute;
@@ -90,7 +88,6 @@ body > div {
     width: 115px;
 }
 
-/* 3. A csúszka pontos elmozdulásai az egyes gombokra */
 .menu:has(a:nth-child(1):hover)::before,
 .menu:has(a:nth-child(1).active)::before {
     transform: translateX(10px);
@@ -115,7 +112,6 @@ body > div {
     width: 115px; /* Kapcsolat */
 }
 
-/* Kártya stílus */
 .kartya {
     width: 1000px;
     max-width: 90vw;
@@ -132,7 +128,7 @@ body > div {
     color: var(--vilagoskek-kiemeles);
 }
 
-/* Textarea stílus (eltünteti a sarok ikont és stabil marad) */
+
 textarea {
     resize: none;
     width: 100%;
