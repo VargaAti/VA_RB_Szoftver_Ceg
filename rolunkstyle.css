@@ -249,3 +249,7 @@ body>h1 {
 @view-transition {
     navigation: auto;
 }
+
+h1 {
+    color: var(--vilagoskek-kiemeles);
+}

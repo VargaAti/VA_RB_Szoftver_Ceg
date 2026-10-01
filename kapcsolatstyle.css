@@ -37,12 +37,12 @@ body > div {
 }
 
 .menu {
-    position: relative;
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1000px;
-    max-width: 90vw;
     gap: 8px;
     padding: 8px;
     background: rgba(255, 255, 255, 0.05);
@@ -51,13 +51,13 @@ body > div {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                inset 0 0 10px rgba(255, 255, 255, 0.05);
-    box-sizing: border-box;
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 .menu a {
     position: relative;
     z-index: 2;
+    /* A szöveg a csúszó elem felett marad */
     display: inline-block;
     padding: 12px 24px;
     color: rgba(255, 255, 255, 0.7);
@@ -72,47 +72,73 @@ body > div {
     color: var(--tort-feher-szoveg);
 }
 
+/* A csúszó háttér elem (kapszula) */
 .menu::before {
     content: '';
     position: absolute;
     top: 8px;
-    left: 242px;
+    left: 8px;
     height: calc(100% - 16px);
     background: rgba(255, 255, 255, 0.15);
+    /* Enyhén világosabb háttér */
+
+    /* A dupla backdrop-filter el lett távolítva a renderelési hiba megszüntetéséhez */
+
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
-                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 1;
-    width: 115px;
+    width: 110px;
+    transform: translateX(0);
 }
 
-.menu:has(a:nth-child(1):hover)::before,
+/* Az aktív menüpont helyzete */
 .menu:has(a:nth-child(1).active)::before {
-    transform: translateX(10px);
-    width: 115px; /* Kezdőlap */
+    transform: translateX(0);
+    width: 110px;
 }
 
-.menu:has(a:nth-child(2):hover)::before,
 .menu:has(a:nth-child(2).active)::before {
-    transform: translateX(130px);
-    width: 95px;  /* Rólunk */
+    transform: translateX(117px);
+    width: 90px;
 }
 
-.menu:has(a:nth-child(3):hover)::before,
 .menu:has(a:nth-child(3).active)::before {
-    transform: translateX(240px);
-    width: 150px; /* Eddigi munkáink */
+    transform: translateX(228px);
+    width: 145px;
 }
 
-.menu:has(a:nth-child(4):hover)::before,
 .menu:has(a:nth-child(4).active)::before {
-    transform: translateX(400px);
-    width: 115px; /* Kapcsolat */
+    transform: translateX(391px);
+    width: 110px;
+}
+
+/* Ezek legyenek az active szabályok UTÁN,
+   hogy rámutatáskor felülírják az aktív helyzetet. */
+.menu:has(a:nth-child(1):hover)::before {
+    transform: translateX(0);
+    width: 110px;
+}
+
+.menu:has(a:nth-child(2):hover)::before {
+    transform: translateX(117px);
+    width: 90px;
+}
+
+.menu:has(a:nth-child(3):hover)::before {
+    transform: translateX(228px);
+    width: 145px;
+}
+
+.menu:has(a:nth-child(4):hover)::before {
+    transform: translateX(391px);
+    width: 110px;
 }
 
 .kartya {
+    margin-top: 100px;
     width: 1000px;
     max-width: 90vw;
     font-size: 18px;
@@ -139,4 +165,8 @@ textarea {
     color: #fff;
     box-sizing: border-box;
     font-family: inherit;
+}
+
+@view-transition {
+    navigation: auto;
 }
