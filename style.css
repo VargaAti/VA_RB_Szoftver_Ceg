@@ -18,19 +18,31 @@ body {
     background-color: var(--melykek-hatter);
     color: var(--tort-feher-szoveg);
     margin: 0;
-    padding-top: 40px; /* Hogy a menü ne ragadjon teljesen a képernyő tetejére */
-    padding-bottom: 40px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Vízszintesen mindent (menü, kártya, kép) tökéletesen középre tesz */
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
     gap: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
 }
 
 .menu {
     position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    max-width: 90vw;
     gap: 8px;
     padding: 8px;
     background: rgba(255, 255, 255, 0.05);
@@ -39,13 +51,13 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 0 10px rgba(255, 255, 255, 0.05);
+                inset 0 0 10px rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
 }
 
 .menu a {
-    position: relative  ;
+    position: relative;
     z-index: 2;
-    /* A szöveg a csúszó elem felett marad */
     display: inline-block;
     padding: 12px 24px;
     color: rgba(255, 255, 255, 0.7);
@@ -60,68 +72,67 @@ body {
     color: var(--tort-feher-szoveg);
 }
 
-/* A csúszó háttér elem (kapszula) */
 .menu::before {
     content: '';
     position: absolute;
     top: 8px;
-    left: 8px;
+    left: 242px;
     height: calc(100% - 16px);
     background: rgba(255, 255, 255, 0.15);
-    /* Enyhén világosabb háttér */
-
-    /* A dupla backdrop-filter el lett távolítva a renderelési hiba megszüntetéséhez */
-
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 40px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
-        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 1;
-    width: 110px;
-    transform: translateX(0);
+    width: 115px;
 }
 
-/* Hover és active állapotok kezelése a :has() segítségével */
 .menu:has(a:nth-child(1):hover)::before,
 .menu:has(a:nth-child(1).active)::before {
-    transform: translateX(0);
-    width: 110px;
+    transform: translateX(10px);
+    width: 115px; /* Kezdőlap */
 }
 
 .menu:has(a:nth-child(2):hover)::before,
 .menu:has(a:nth-child(2).active)::before {
-    transform: translateX(117px);
-    width: 90px;
+    transform: translateX(130px);
+    width: 95px;  /* Rólunk */
 }
 
 .menu:has(a:nth-child(3):hover)::before,
 .menu:has(a:nth-child(3).active)::before {
-    transform: translateX(228px);
-    width: 145px;
+    transform: translateX(240px);
+    width: 150px; /* Eddigi munkáink */
 }
 
 .menu:has(a:nth-child(4):hover)::before,
 .menu:has(a:nth-child(4).active)::before {
-    transform: translateX(391px);
-    width: 110px;
+    transform: translateX(400px);
+    width: 115px; /* Kapcsolat */
 }
 
 .kartya {
     width: 1000px;
-    font-size: 25px;
-    background-color: var(--kozepszurke-reszletek);
+    max-width: 90vw;
+    font-size: 18px;
+    background-color: var(--sotet-pala-szurke);
     border-radius: 25px;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
-.Csarks {
-img {
-    width: 500px;
+.kartya h1 {
+    margin-top: 0;
+    color: var(--vilagoskek-kiemeles);
+}
+
+.Csarks img {
+    width: 300px;
+    max-width: 90vw;
     height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
 }

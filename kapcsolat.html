@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kapcsolat</title>
     <link rel="stylesheet" href="kapcsolatstyle.css">
 </head>
+
 <body>
-        <!-- fejléc -->
-    <div class="menu">
-        <a href="index.html">Kezdőlap</a>
-        <a href="rolunk.html">Rólunk</a>
-        <a href="eddigi.html">Eddigi munkáink</a>
-        <a href="kapcsolat.html">Kapcsolat</a>
+    <!-- fejléc -->
+    <div>
+        <div class="menu">
+            <a href="index.html">Kezdőlap</a>
+            <a href="rolunk.html">Rólunk</a>
+            <a href="eddigi.html">Eddigi munkáink</a>
+            <a href="kapcsolat.html" class="active">Kapcsolat</a>
+        </div>
+
+        <div class="kartya">
+            <h1>Lépj kapcsolatba velünk!</h1>
+            <p>Van egy remek ötleted, vagy kérdésed van a szolgáltatásainkkal kapcsolatban? Írj nekünk bátran, és örömmel segítünk a megvalósításban!</p>
+            
+            <form style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                <div>
+                    <label for="nev" style="display: block; margin-bottom: 5px; font-size: 18px;">Neved:</label>
+                    <input type="text" id="nev" name="nev" placeholder="Add meg a neved" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; box-sizing: border-box;">
+                </div>
+                <div>
+                    <label for="email" style="display: block; margin-bottom: 5px; font-size: 18px;">E-mail címed:</label>
+                    <input type="email" id="email" name="email" placeholder="pelda@email.com" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: #fff; box-sizing: border-box;">
+                </div>
+                <div>
+                    <label for="uzenet" style="display: block; margin-bottom: 5px; font-size: 18px;">Üzeneted:</label>
+                    <textarea id="uzenet" name="uzenet" rows="4" placeholder="Írd ide az üzeneted..."></textarea>
+                </div>
+                <button type="submit" style="padding: 12px 20px; border-radius: 8px; border: none; background: #3b82f6; color: #fff; font-size: 16px; font-weight: bold; cursor: pointer;">Küldés</button>
+            </form>
+        </div>
     </div>
 </body>
+
 </html>
