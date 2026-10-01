@@ -19,13 +19,21 @@ body {
     color: var(--tort-feher-szoveg);
     margin: 0;
     min-height: 100vh;
-    /* Javítva: height helyett min-height */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
     gap: 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
 }
 
 /* 1. Menü konténer - fix 1000px szélesség, gombok középen */
@@ -45,7 +53,7 @@ body {
     border-radius: 50px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
                 inset 0 0 10px rgba(255, 255, 255, 0.05);
-    box-sizing: border-radius;
+    box-sizing: border-box;
 }
 
 .menu a {
@@ -65,12 +73,12 @@ body {
     color: var(--tort-feher-szoveg);
 }
 
-/* 2. Csúszka alapbeállítása (Középről, a Kezdőlap gomb alól indul) */
+/* 2. Csúszka alapbeállítása (Kezdőlapon az 1. gomb az aktív) */
 .menu::before {
     content: '';
     position: absolute;
     top: 8px;
-    left: 242px; /* Pontosan a középre igazított első gombra állítva */
+    left: 242px;
     height: calc(100% - 16px);
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -107,22 +115,29 @@ body {
     width: 115px; /* Kapcsolat */
 }
 
-
+/* Kártya stílus */
 .kartya {
     width: 1000px;
-    font-size: 25px;
-    background-color: var(--kozepszurke-reszletek);
+    max-width: 90vw;
+    font-size: 18px;
+    background-color: var(--sotet-pala-szurke);
     border-radius: 25px;
-    padding: 20px;
+    padding: 30px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
 }
 
-.Csarks {
-img {
-    width: 500px;
+.kartya h1 {
+    margin-top: 0;
+    color: var(--vilagoskek-kiemeles);
+}
+
+/* Logó stílus */
+.Csarks img {
+    width: 300px;
+    max-width: 90vw;
     height: auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
 }
